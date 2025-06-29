@@ -1,4 +1,5 @@
+//Adding node_modules to the gitignore file
+
 node_modules/
 
-//Adding node_modules to the gitignore file
 
