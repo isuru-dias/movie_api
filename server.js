@@ -4,18 +4,18 @@ const url = require ('url');     // This will load the URL module from Node, thi
 
 
 
-http.createServer ((request, response) => {     // Creates a new HTTP Server. (We created this server in order to retrieve a URL) 
+http.createServer ((request, response) => {     // Creates a new HTTP Server. (We created this HTTP server in order to make the application accessible on the HTTP Server by using a Port) 
                                                 /*  Request is a parameter used to recieve the URL. 
                                                     Response is a parameter that will send information to the client. */
 
-    const parsedUrl = url.parse (request.url, true);     // Parse will recieve the entire URL, and store it inside the parsedUrl Variable 
+    const parsedUrl = url.parse(request.url, true);     // Parse will recieve the entire URL, and store it inside the parsedUrl Variable 
     const pathname = parsedUrl.pathname.toLowerCase();  // This will make the entire pathname of the full URL lowercase 
 
     const logLine = `${request.url} - ${new Date().toISOString()}/n`;     // When a client sends a request to the server, this exact time will be timestamped and converted into a string 
 
     fs.appendFile ('log.txt', logLine, (err) => {     // We will store the timestamp of the client request inside the log.txt file 
         if (err) {     // We are setting up what will happen ff an error occurs
-            console.error ('Failed to write to log.txt');     // If an error occurs, such as log.txt file not being present, this text will be displayed for the client 
+            console.error ('Failed to write to log.txt');     // If an error occurs, such as log.txt file not being present, this message test will be displayed on the terminal 
         }
     });
 
@@ -31,10 +31,10 @@ http.createServer ((request, response) => {     // Creates a new HTTP Server. (W
     fs.readFile (filePath, (err, data) => {     // This will read the HTML file documentation.html
         if (err) {
             response.writeHead (404, { 'Content-type': 'text/plain' });     // We are creating the format for the error message 
-            response.end ('404 - File Not Found');     // If there is an error, this message will be displayed to the user
-        } else {
+            response.end('404 - File Not Found');     // If there is an error, a 404 message will be sent to the client, but deciding if the message gets displayed or not is the responsibility of the caller
+
             response.writeHead (200, { 'Content-Type': 'text/html' });     // We are creating the format for the request successful message 
-            response.end (data);     // Sending the data from the HTML file documentation.html to the client 
+            response.end (data);     // Sending the requested data from the HTML file (documentation.html or index.html) to the client 
         }
 
     })
