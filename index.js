@@ -69,9 +69,8 @@ app.get('/',(req, res) => {
 
 //Error Handling
 app.use((err, req, res, next) => {
-    throw new Error ('Something broke!');
-    // console.error(err.stack);
-    // res.status(500).send('Something broke!');
+    console.log(err.stack);
+    res.status(500).send(`Error: ${err}`);
 }
 )
 
