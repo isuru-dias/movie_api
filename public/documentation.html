@@ -13,7 +13,64 @@
 
 <body>
 
-    <p>This API will be used to display information about different movies, directors, and genres.</p>
+    <h1>Movie Information</h1>
+    
+    <table border="1" cellpadding="10">
+  <thead>
+    <tr>
+      <th>Request</th>
+      <th>URL</th>
+      <th>Response</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>GET</td>
+      <td>/movies</td>
+      <td>Returns a list of all movies</td>
+    </tr>
+    <tr>
+      <td>GET</td>
+      <td>/movies/:title</td>
+      <td>Returns data for a single movie by title</td>
+    </tr>
+    <tr>
+      <td>GET</td>
+      <td>/genre/:genreName</td>
+      <td>Returns description for a given genre</td>
+    </tr>
+    <tr>
+      <td>GET</td>
+      <td>/director/:name</td>
+      <td>Returns data about a movie director by name</td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td>/users</td>
+      <td>Registers a new user</td>
+    </tr>
+    <tr>
+      <td>PUT</td>
+      <td>/users/:username</td>
+      <td>Updates a user's username</td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td>/users/:username/movies/:movieTitle</td>
+      <td>Adds a movie to user's favorites</td>
+    </tr>
+    <tr>
+      <td>DELETE</td>
+      <td>/users/:username/movies/:movieTitle</td>
+      <td>Removes a movie from user's favorites</td>
+    </tr>
+    <tr>
+      <td>DELETE</td>
+      <td>/users/:username</td>
+      <td>Deregisters a user</td>
+    </tr>
+  </tbody>
+</table>
 
 </body>
 
